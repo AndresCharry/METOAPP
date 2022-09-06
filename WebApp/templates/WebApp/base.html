@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1.0"
+            />
+            <title>MetoApp</title>
+
+            {% load static %}
+            <!-- Bootstrap -->
+            <link
+                href="{% static 'WebApp/vendor/bootstrap/css/bootstrap.min.css' %}"
+                rel="stylesheet"
+            />
+
+            <!-- Fonts -->
+
+            <link
+                href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+                rel="stylesheet"
+            />
+            <link
+                href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+                rel="stylesheet"
+            />
+
+            <!-- Styles -->
+            <link
+                href="{% static 'WebApp/css/gestion.css' %}"
+                rel="stylesheet"
+            />
+        </head>
+
+        <body>
+            <!-- Navbar -->
+            <nav
+                class="navbar navbar-expand-lg navbar-dark py-lg-4"
+                id="mainNav"
+            >
+                <div class="container">
+                    <a id="titulo"
+                        class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+                        href="{% url 'Home' %}"
+                        >MetoApp</a
+                    >
+                    <a id = "titulo"
+                        class="navbar-brand text-uppercase text-expanded font-weight-bold d-none d-lg-block"
+                        href="{% url 'Home' %}"
+                        >MetoApp</a
+                    >
+                </div>
+            </nav>
+
+            {% block content %} 
+            
+            {% endblock %}
+            <!-- Footer -->
+            <footer class="footer text-faded text-center" >
+                <div class="container">
+                    <p class=" footer m-0 mbt">&copy; MetoApp 2020</p>
+                </div>
+            </footer>
+
+            <!-- Bootstrap -->
+            <script src="{% static 'WebApp/vendor/jquery/jquery.min.js' %}"></script>
+            <script src="{% static 'WebApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        </body>
+    </html>
+</html>

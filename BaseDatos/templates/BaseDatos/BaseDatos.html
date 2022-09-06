@@ -1,0 +1,46 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 50rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'BaseDatos2' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'BaseDatos' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        <table style="margin: 20px">
+                            <h3><label class="label">Lista de proyectos</label></h3>
+                            {% for listas in lista %}
+                                <p>{{listas}}</p>
+                            {% endfor %}
+                            <h3><label class="label">Nombre del proyecto</label></h3>
+                            <div class="control">
+                                {% render_field formulario.nombre_proyecto class="input" placeholder="Proyecto" %}
+                            </div>
+                        </table>
+                        <input type="submit" value="guardar" id="boton" />
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'EncuestaBaseDatos' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% endif  %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,906 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} 
+{% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 70rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioVariables' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioNombreVariables' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        <table style="margin: 20px">
+                            <label class="label">Escribe el nombre de las variables y cuantas repeticiones por punto se van a hacer</label>
+                            {% if num == 1 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 2 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 3 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 4 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 5 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 6 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 7 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 8 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 9 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 10 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 11 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 12 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 13 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 14 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 15 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable15 class="input" placeholder="Nombre de la variable 15" %}
+                                    {% render_field formularioNombreVariables.num_variable15 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 16 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable15 class="input" placeholder="Nombre de la variable 15" %}
+                                    {% render_field formularioNombreVariables.num_variable15 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable16 class="input" placeholder="Nombre de la variable 16" %}
+                                    {% render_field formularioNombreVariables.num_variable16 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 17 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable15 class="input" placeholder="Nombre de la variable 15" %}
+                                    {% render_field formularioNombreVariables.num_variable15 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable16 class="input" placeholder="Nombre de la variable 16" %}
+                                    {% render_field formularioNombreVariables.num_variable16 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable17 class="input" placeholder="Nombre de la variable 17" %}
+                                    {% render_field formularioNombreVariables.num_variable17 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 18 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable15 class="input" placeholder="Nombre de la variable 15" %}
+                                    {% render_field formularioNombreVariables.num_variable15 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable16 class="input" placeholder="Nombre de la variable 16" %}
+                                    {% render_field formularioNombreVariables.num_variable16 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable17 class="input" placeholder="Nombre de la variable 17" %}
+                                    {% render_field formularioNombreVariables.num_variable17 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable18 class="input" placeholder="Nombre de la variable 18" %}
+                                    {% render_field formularioNombreVariables.num_variable18 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% elif num == 19 %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable15 class="input" placeholder="Nombre de la variable 15" %}
+                                    {% render_field formularioNombreVariables.num_variable15 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable16 class="input" placeholder="Nombre de la variable 16" %}
+                                    {% render_field formularioNombreVariables.num_variable16 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable17 class="input" placeholder="Nombre de la variable 17" %}
+                                    {% render_field formularioNombreVariables.num_variable17 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable18 class="input" placeholder="Nombre de la variable 18" %}
+                                    {% render_field formularioNombreVariables.num_variable18 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable19 class="input" placeholder="Nombre de la variable 19" %}
+                                    {% render_field formularioNombreVariables.num_variable19 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% else %}
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable1 class="input" placeholder="Nombre de la variable 1" %}
+                                    {% render_field formularioNombreVariables.num_variable1 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable2 class="input" placeholder="Nombre de la variable 2" %}
+                                    {% render_field formularioNombreVariables.num_variable2 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable3 class="input" placeholder="Nombre de la variable 3" %}
+                                    {% render_field formularioNombreVariables.num_variable3 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable4 class="input" placeholder="Nombre de la variable 4" %}
+                                    {% render_field formularioNombreVariables.num_variable4 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable5 class="input" placeholder="Nombre de la variable 5" %}
+                                    {% render_field formularioNombreVariables.num_variable5 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable6 class="input" placeholder="Nombre de la variable 6" %}
+                                    {% render_field formularioNombreVariables.num_variable6 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable7 class="input" placeholder="Nombre de la variable 7" %}
+                                    {% render_field formularioNombreVariables.num_variable7 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable8 class="input" placeholder="Nombre de la variable 8" %}
+                                    {% render_field formularioNombreVariables.num_variable8 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable9 class="input" placeholder="Nombre de la variable 9" %}
+                                    {% render_field formularioNombreVariables.num_variable9 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable10 class="input" placeholder="Nombre de la variable 10" %}
+                                    {% render_field formularioNombreVariables.num_variable10 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable11 class="input" placeholder="Nombre de la variable 11" %}
+                                    {% render_field formularioNombreVariables.num_variable11 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable12 class="input" placeholder="Nombre de la variable 12" %}
+                                    {% render_field formularioNombreVariables.num_variable12 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable13 class="input" placeholder="Nombre de la variable 13" %}
+                                    {% render_field formularioNombreVariables.num_variable13 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable14 class="input" placeholder="Nombre de la variable 14" %}
+                                    {% render_field formularioNombreVariables.num_variable14 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable15 class="input" placeholder="Nombre de la variable 15" %}
+                                    {% render_field formularioNombreVariables.num_variable15 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable16 class="input" placeholder="Nombre de la variable 16" %}
+                                    {% render_field formularioNombreVariables.num_variable16 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable17 class="input" placeholder="Nombre de la variable 17" %}
+                                    {% render_field formularioNombreVariables.num_variable17 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable18 class="input" placeholder="Nombre de la variable 18" %}
+                                    {% render_field formularioNombreVariables.num_variable18 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable19 class="input" placeholder="Nombre de la variable 19" %}
+                                    {% render_field formularioNombreVariables.num_variable19 class="input" placeholder="# de mediciones " %}
+                                </div>
+                                <div class="control">
+                                    {% render_field formularioNombreVariables.variable20 class="input" placeholder="Nombre de la variable 20" %}
+                                    {% render_field formularioNombreVariables.num_variable20 class="input" placeholder="# de mediciones " %}
+                                </div>
+                            {% endif %}
+                            <label class="lable">¿Cuantos puntos de medición su tendrán en el cultivo?</label>
+                            <div class="control">
+                                {% render_field formularioNombreVariables.arb_esc  class="input" placeholder="Numero de puntos a medir"  %}
+                            </div>
+                        </table>
+                        <input type="submit" value="guardar" id="boton" />
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Encuesta2' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% endif  %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

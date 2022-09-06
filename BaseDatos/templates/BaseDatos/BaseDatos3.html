@@ -1,0 +1,55 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 50rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información guardada correctamente, puede descargar la informacion requerida.</p>
+
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FinalizarBaseDatos' %}" id="atras">
+                                Descarga
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Home' %}" id="atras">
+                                Inicio
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'BaseDatos3' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        <table style="margin: 20px">
+                            <h3><label class="label">Lista de fechas de la campaña {{campaña}} del proyecto {{proyecto}}</label></h3>
+                            {% for listas in lista %}
+                                <p>{{listas}}</p>
+                            {% endfor %}
+                            <h3><label class="label"></label>Fecha de la medicion</h3>
+                            <div class="control">
+                                {% render_field formulario.fecha class="input" placeholder="Fecha" %}
+                            </div>
+                        </table>
+                        <input type="submit" value="guardar" id="boton" />
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'NuevoProyecto3' %}" id="atras">
+                                Crear nueva fecha
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'BaseDatos' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% endif  %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

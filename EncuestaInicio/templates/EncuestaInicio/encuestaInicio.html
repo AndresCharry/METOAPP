@@ -1,0 +1,51 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 50rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Coordenadas' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'EncuestaInicio' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        <table style="margin: 20px">
+                            <label class="label">¿Qué cultivo se va a escanear?</label>
+                            <div class="control">
+                                {% render_field encuestaInicio.tipo_cultivo class="input" placeholder="Tipo de cultivo" %}
+                            </div>
+                            <label class="label">¿El cultivo cuenta con surcos?</label>
+                            <div class="control">
+                                {% render_field encuestaInicio.surcos %}
+                            </div>
+                            <label class="label">¿Se va a escanear con LiDAR?</label>
+                            <div class="control">
+                                {% render_field encuestaInicio.lidar %}
+                            </div>
+                        </table>
+                        <input type="submit" value="guardar" id="boton" />
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Home' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% endif  %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

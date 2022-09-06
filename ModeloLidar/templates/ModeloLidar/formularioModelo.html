@@ -1,0 +1,58 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 50rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    
+                    {% if "valido" in request.GET  %}
+                        <p>Información guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioModelo2' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioModelo' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        <table style="margin: 20px">
+                            <label class="label">¿Qué altura va tener el LiDAR?</label>
+                            <div class="control">
+                                {% render_field formularioModelo.tZ class="input" placeholder="Altura del lidar en M" %}
+                            </div>
+                            <label class="label">¿Qué angulo va tener el LiDAR?</label>
+                            <div class="control">
+                                {% render_field formularioModelo.alpha clase="input" placeholder="Angulo del Lidar en grados" %}
+                            </div>
+                            <label class="label">¿Qué velocidad va llevar la plataforma </label>
+                            <div class="control">
+                                {% render_field formularioModelo.platform_speed class="input" placeholder="Velocidad en M" %}
+                            </div>
+                            <label class="label">¿Cuantos anillos tiene el LiDAR?</label>
+                            <div class="control">
+                                {% render_field formularioModelo.numero_anillos clase="input" %}
+                            </div>
+                            <label class="label">¿Cual es la resolucion por anillo?</label>
+                            <div class="control">
+                                {% render_field formularioModelo.angular_ring_resolution class="input" placeholder="Resolucion" %}
+                            </div>
+                        </table>
+                        <input type="submit" value="guardar" id="boton" />
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                        href="{% url 'FormularioVariables' %}" id="atras">
+                            atras
+                        </a>
+                    {% endif  %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

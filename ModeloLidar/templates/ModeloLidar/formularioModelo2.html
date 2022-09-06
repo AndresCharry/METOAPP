@@ -1,0 +1,192 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 55rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'VistaModelo' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioModelo2' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        <table style="margin: 20px">
+                            <label class="label">Digite el angulo de cada anillo</label>
+                            <br>
+                            {% if anillos == 1  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                            {% elif anillos == 2  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                            {% elif anillos == 3  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 3</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo3 class="input" placeholder="Grados" %}
+                                </div>
+                            {% elif anillos == 4  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 3</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo3 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 4</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo4 class="input" placeholder="Grados" %}
+                                </div>
+                            {% elif anillos == 5  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 3</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo3 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 4</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo4 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 5</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo5 class="input" placeholder="Grados" %}
+                                </div>
+                            {% elif anillos == 6  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 3</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo3 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 4</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo4 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 5</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo5 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 6</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo6 class="input" placeholder="Grados" %}
+                                </div>
+                            {% elif anillos == 7  %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 3</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo3 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 4</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo4 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 5</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo5 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 6</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo6 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 7</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo7 class="input" placeholder="Grados" %}
+                                </div>
+                            {% else %}
+                                <label class="label">Anillos 1</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo1 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 2</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo2 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 3</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo3 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 4</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo4 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 5</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo5 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 6</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo6 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 7</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo7 class="input" placeholder="Grados" %}
+                                </div>
+                                <label class="label">Anillos 8</label>
+                                <div class="control">
+                                    {% render_field formularioModelo.anillo8 class="input" placeholder="grados" %}
+                                </div>
+                            {% endif  %}
+                        </table>
+                        <input type="submit" value="guardar" id="boton" />
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                        href="{% url 'FormularioModelo' %}" id="atras">
+                            atras
+                        </a>
+                    {% endif  %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

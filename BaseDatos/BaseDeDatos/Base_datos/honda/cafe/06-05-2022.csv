@@ -1,0 +1,5 @@
+tipo de cultivo,surcos,lidar,Dia de la plantacion,Unnamed: 4,Coordenadas del campo(latitud),Coordenadas del campo(longitud),Coordenadas del campo(altura),Area del cultivo,Unnamed: 9,Distancia de surco,Numero de surcos,Ancho de la hilera,Numero de arboles por hilera,Distancia entre arboles por hilera,numero de marcadores,numero de variables,Unnamed: 17,Coordenadas de los marcadores (latitud),Coordenadas de los marcadores (longitud),Unnamed: 20,Coordenadas de los puntos (latitud),Coordenadas de los puntos (longitud),Unnamed: 23
+arroz,True,False,11-08-2022,,4.43852,-75.19976,1000,1110.42,,2,10,0.5,5,0.7,4,1, ,,,,4.438069946687164,-75.19951628668174,
+,,,,,4.43807,-75.19964,1000,1110.42,,,,,,,,,,,,,,,
+,,,,,4.4383,-75.19867,1000,1110.42,,,,,,,,,,,,,,,
+,,,,,4.43875,-75.19878,1000,1110.42,,,,,,,,,,,,,,,

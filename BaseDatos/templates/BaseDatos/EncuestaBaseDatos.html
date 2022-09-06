@@ -1,0 +1,27 @@
+{% extends "WebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+   <!-- Heading -->
+   <section class="page-section clearfix" style="margin-bottom: 50rem;">
+    <div class="container">
+      <div class="intro">
+        <div class="intro-text  text-center bg-faded p-5 rounded float-right">
+          
+          <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+          href="{% url 'NuevoProyecto' %}" id="atras">
+            Crear Proyecto
+          </a>
+          <br>
+          <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+          href="{% url 'BaseDatos' %}" id="atras">
+            Descargar archivo
+          </a>
+        </div>
+        <!-- <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'WebApp/img/papa.jpg' %}" alt=""> -->
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

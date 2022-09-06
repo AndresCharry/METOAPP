@@ -1,0 +1,37 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 90rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table style="margin: 20px">
+                        <img class="imagen" src="{% static 'WebApp/img/scan.jpg' %}" style="margin-bottom: 10px;">
+                        <img class="imagen" src="{% static 'WebApp/img/recorrido.jpg' %}" style="margin-bottom: 10px;">
+                        <img class="imagen" src="{% static 'WebApp/img/pandasmatriz.jpg' %}" >
+                        <label class="lable">La cantida de escaneos son: <br>  {{cantidad_de_escaneos}}</label>
+                        <br>
+                        <label class="lable">Numero de puntos totales por m^2: <br> {{resolucion}}</label>
+                        <br>
+                        <label class="lable">La distancia promedio del lidar a los puntos es: <br> {{distancia_promedio}}</label>
+                        <br>
+                        <label class="lable">El angulo de incidencia promedio del lidar a los puntos es: <br>  {{angulo_incidencia}}</label>
+                        <br>
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                        href="{% url 'Finalizar' %}" id="atras">
+                            Descarga
+                        </a>
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                        href="{% url 'Home' %}" id="atras">
+                            Inicio
+                        </a>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

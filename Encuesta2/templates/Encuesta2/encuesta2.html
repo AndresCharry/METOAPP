@@ -1,0 +1,88 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 90rem; padding: 20px;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded  rounded">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información fue guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioNombreVariables' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Encuesta2' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                        {% if surcos ==  True   %}
+                            <table style="margin: 20px">
+                                <img class="imagen" src="{% static 'WebApp/img/marcadores_arboles.jpg' %}" style="margin-bottom: 10px;padding-top: 20px;">
+                                <img class="imagen" src="{% static 'WebApp/img/furrow.jpg' %}" style="width: 500px; ">
+                                <p>Área del cultivo</p>
+                                <p>{{area}} m^2</p>
+                                <label class="label">¿Cuál es la distancia del surco?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.vs class="input" placeholder="Distancia en M" %}
+                                </div>
+                                <label class="label">¿Cuantos surcos tiene el cultivo?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.n_s class="input" placeholder="# de surcos" %}
+                                </div>
+                                <label class="label">¿Cuál es la medida del cantero?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.v class="input" placeholder="Ancho del cantero en M" %}
+                                </div>
+                                <label class="label">¿Qué cantidad de plantas hay por cantero?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.num_arb class="input" placeholder="# de arboles en el cantero" %}
+                                </div>
+                                <label class="label">¿Qué distancia hay entre las plantas en el cantero?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.esp_arb class="input" placeholder="Distancia en  M" %}
+                                </div>
+                                <label class="label">¿Cuantos marcadores vas a utilizar en el cultivo?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.numero_de_marcadores class="input" placeholder="# de marcadores" %}
+                                </div>
+                                <label class="label">¿Cuantas variables se van a medir en el cultivo?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.n_variables class="input" placeholder="# de Variables" %}
+                                </div>
+                            </table>
+                        {% else  %}
+                            <table style="margin: 20px">
+                                <img class="imagen" src="{% static 'WebApp/img/marcadores_arboles.jpg' %}" style="margin-top: 10px;">
+                                <p>Area del cultivo</p>
+                                <p>{{area}} m^2</p>
+                                <label class="label">¿Cuantos marcadores vas a utilizar en el cultivo?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.numero_de_marcadores class="input" placeholder="# de marcadores" %}
+                                </div>
+                                <label class="label">¿Cuantas variables se van a medir en el cultivo?</label>
+                                <div class="control">
+                                    {% render_field encuesta2.n_variables class="input" placeholder="# de Variables" %}
+                                </div>
+                            </table>
+                        {% endif %}
+                        <input type="submit" value="guardar" id="boton" />
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Coordenadas' %}" id="atras">
+                            atras
+                            </a>
+                        </div>
+                    {% endif  %}
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
