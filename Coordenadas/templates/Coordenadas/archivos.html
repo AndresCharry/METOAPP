@@ -1,0 +1,45 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %}
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 90rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="margin-bottom: 20px;">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% if "valido" in request.GET  %}
+                        <p>Información fue guardada correctamente, puede seguir.</p>
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Encuesta2' %}" id="atras">
+                                siguiente
+                            </a>
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Coordenadas' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% else  %}
+                    <table >
+                       <label class="label">Punto 4</label>
+                       <div class="control">
+                           {{archivo}}
+                        </div>
+                    </table>
+                    <br>
+                        <input type="submit" value="guardar" id="boton" />
+                        <div class="botones">
+                            <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'EncuestaInicio' %}" id="atras">
+                                atras
+                            </a>
+                        </div>
+                    {% endif  %}
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
