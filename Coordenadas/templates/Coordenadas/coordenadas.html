@@ -4,7 +4,7 @@
     <div class="container">
         <div class="intro">
             <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="margin-bottom: 20px;">
-                <form method="post" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if "valido" in request.GET  %}
                         <p>Información fue guardada correctamente, puede seguir.</p>
@@ -19,10 +19,11 @@
                             </a>
                         </div>
                     {% else  %}
-                    <table >
+                    <table style = "margin-left: 20%">
                         <img class="imagen" style="margin-bottom: 10px;" src="{% static 'WebApp/img/coordenadas.jpg' %}">
                         <iframe width="90%" height="80%" src="https://www.youtube.com/embed/puqQfI_tqYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <label class="label">Ingrese un archivo.csv que contenga las coordenadas que limitan su cultivo. Este archivo debe contener dos columnas en las cuales deben ser nombradas "Coordenadas del campo(latitud)","Coordenadas del campo(longitud)" y "Coordenadas del campo(altura)" además de que el archivo debe estar separado por comas</label>
+                        <label class="label">Ingrese un archivo.csv que contenga las coordenadas que limitan su cultivo. Este archivo debe contener tres columnas las cuales deben ser nombradas "Coordenadas del campo(latitud)","Coordenadas del campo(longitud)" y "Coordenadas del campo(altura)" además de que el archivo debe estar separado por comas</label>
+                        {{coordenadas.as_p}}
                     </table>
                     <br>
                         <input type="submit" value="guardar" id="boton" />
