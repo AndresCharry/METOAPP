@@ -4,7 +4,7 @@
     <div class="container">
         <div class="intro">
             <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="margin-bottom: 20px;">
-                <form action="" method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% if "valido" in request.GET  %}
                         <p>Información fue guardada correctamente, puede seguir.</p>
@@ -22,31 +22,7 @@
                     <table >
                         <img class="imagen" style="margin-bottom: 10px;" src="{% static 'WebApp/img/coordenadas.jpg' %}">
                         <iframe width="90%" height="80%" src="https://www.youtube.com/embed/puqQfI_tqYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <label class="label">Digite las coordenadas de su cultivo de acuerdo a la imagen</label>
-                        <label class="label">Punto 1</label>
-                        <div class="control">
-                            {% render_field coordenadas.lat_1 class="input" placeholder="Lattitud 1" %}
-                            {% render_field coordenadas.log_1 class="input" placeholder="Longitud 1" %}
-                            {% render_field coordenadas.h1 class="input" placeholder="Altura 1" %}
-                        </div>
-                        <label class="label">Punto 2</label>
-                        <div class="control">
-                            {% render_field coordenadas.lat_2 class="input" placeholder="Lattitud 2" %}
-                            {% render_field coordenadas.log_2 class="input" placeholder="Longitud 2" %}
-                            {% render_field coordenadas.h2 class="input" placeholder="Altura 2" %}
-                        </div>
-                        <label class="label">Punto 3</label>
-                        <div class="control">
-                            {% render_field coordenadas.lat_3 class="input" placeholder="Lattitud 3" %}
-                            {% render_field coordenadas.log_3 class="input" placeholder="Longitud 3" %}
-                            {% render_field coordenadas.h3 class="input" placeholder="Altura 3" %}
-                        </div>
-                        <label class="label">Punto 4</label>
-                        <div class="control">
-                            {% render_field coordenadas.lat_4 class="input" placeholder="Lattitud 4" %}
-                            {% render_field coordenadas.log_4 class="input" placeholder="Longitud 4" %}
-                            {% render_field coordenadas.h4 class="input" placeholder="Altura 4" %}
-                        </div>
+                        <label class="label">Ingrese un archivo.csv que contenga las coordenadas que limitan su cultivo. Este archivo debe contener dos columnas en las cuales deben ser nombradas "Coordenadas del campo(latitud)","Coordenadas del campo(longitud)" y "Coordenadas del campo(altura)" además de que el archivo debe estar separado por comas</label>
                     </table>
                     <br>
                         <input type="submit" value="guardar" id="boton" />

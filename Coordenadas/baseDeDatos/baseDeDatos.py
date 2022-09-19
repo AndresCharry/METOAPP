@@ -1,20 +1,19 @@
 import pandas as pd
 
 
-def datos(datos):
-    datos[''] = ''
-    datos = pd.DataFrame(datos)
+def datos(url_coordenadas):
+    coordenadas = pd.read_csv(url_coordenadas)
     url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     pandas = pd.read_csv(url)
     try:
         if pandas.at[0, 'Coordenadas del campo(latitud)'] != None:
-            pandas['Coordenadas del campo(latitud)'] = datos['Coordenadas del campo(latitud)']
-            pandas['Coordenadas del campo(longitud)'] = datos['Coordenadas del campo(longitud)']
-            pandas['Coordenadas del campo(altura)'] = datos['Coordenadas del campo(altura)']
+            pandas['Coordenadas del campo(latitud)'] = coordenadas['Coordenadas del campo(latitud)']
+            pandas['Coordenadas del campo(longitud)'] = coordenadas['Coordenadas del campo(longitud)']
+            pandas['Coordenadas del campo(altura)'] = coordenadas['Coordenadas del campo(altura)']
             pandas.to_csv(url,index=False, header = True)
     except:
-        result = pd.concat([pandas,datos], axis=1)
+        result = pd.concat([pandas, coordenadas], axis=1)
         result.to_csv(url,index=False, header = True)
 
         

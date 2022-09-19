@@ -22,7 +22,7 @@ urlpatterns = [
     path('', include('WebApp.urls')),
     path('', include('BaseDatos.urls')),
     path('encuestaInicio/', include('EncuestaInicio.urls')),
-    path('', include('Coordenadas.urls')),
+    path('Coordenadas/', include('Coordenadas.urls')),
     path('encuesta2/', include('Encuesta2.urls')),
     path('', include('Variables.urls')),
     path('', include('ModeloLidar.urls')),
