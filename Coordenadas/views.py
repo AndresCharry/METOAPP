@@ -2,21 +2,21 @@ from django.shortcuts import render, redirect
 
 from .forms import FormularioCoordenadas
 from .upload import  handle_uploaded_file
-from .baseDeDatos.baseDeDatos import datos 
+from .baseDeDatos.baseDeDatos import  base_de_datos
 # Create your views here.
 
 def coordenadas(request):
     formulario_coordenadas = FormularioCoordenadas()
 
     if request.method == "POST":
-        formulario_coordenadas = FormularioCoordenadas(request.FILES)
+        formulario_coordenadas = FormularioCoordenadas(request.POST,request.FILES)
 
-        print(formulario_coordenadas.is_valid())
         if formulario_coordenadas.is_valid():
-            print(1)
             # creaccion del diccionario
+            datos = {}
+            datos['Tipo de cultivo'] = request.POST.get("tipo_cultivo")
             url_coordenadas = handle_uploaded_file(request.FILES['file'])
-            datos(url_coordenadas)
+            base_de_datos(url_coordenadas)
             return redirect("/coordenadas/?valido")
 
     return render(request, "Coordenadas/coordenadas.html", {'coordenadas': formulario_coordenadas})

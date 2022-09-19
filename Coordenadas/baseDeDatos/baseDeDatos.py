@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def datos(url_coordenadas):
+def base_de_datos(url_coordenadas):
     coordenadas = pd.read_csv(url_coordenadas)
     url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']

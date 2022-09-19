@@ -19,12 +19,13 @@
                             </a>
                         </div>
                     {% else  %}
-                    <table style = "margin-left: 20%">
                         <img class="imagen" style="margin-bottom: 10px;" src="{% static 'WebApp/img/coordenadas.jpg' %}">
                         <iframe width="90%" height="80%" src="https://www.youtube.com/embed/puqQfI_tqYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <label class="label">Ingrese un archivo.csv que contenga las coordenadas que limitan su cultivo. Este archivo debe contener tres columnas las cuales deben ser nombradas "Coordenadas del campo(latitud)","Coordenadas del campo(longitud)" y "Coordenadas del campo(altura)" además de que el archivo debe estar separado por comas</label>
-                        {{coordenadas.as_p}}
-                    </table>
+                        <label>¿En que tipo de cultivo se van a hacer las mediciones?</label>
+                        <div class="control" style="margin-bottom: 10px;">{% render_field coordenadas.tipo_cultivo class="input" placeholder="Tipo de cultivo"%}</div>
+                        <label>¿Suba su archivo aquí?</label>
+                        <div style="margin-left: 25%">{{coordenadas.file}}</div>
                     <br>
                         <input type="submit" value="guardar" id="boton" />
                         <div class="botones">

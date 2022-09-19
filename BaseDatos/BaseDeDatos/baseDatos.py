@@ -1,5 +1,3 @@
-from email import header
-from re import T
 import pandas as pd
 
 def datos(urls, datos):
