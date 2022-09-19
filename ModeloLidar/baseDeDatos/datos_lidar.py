@@ -1,7 +1,7 @@
 import pandas as pd
 
 def Datos_lidar():
-    df = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/ModeloLidar/baseDeDatos/ModeloLidar_csv/ModeloLidar.csv', header=0)
+    df = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/ModeloLidar/baseDeDatos/ModeloLidar_csv/ModeloLidar.csv', header=0)
     diccionario = {}
     diccionario = {'Altura del lidar': df['Altura del lidar'],
                    'Angulo del lidar': df['Angulo del lidar'], 

@@ -1,19 +1,20 @@
-from django.shortcuts import render,redirect
+import os
+
+from django.shortcuts import redirect, render
+import pandas as pd
 
 from BaseDatos.BaseDeDatos.baseDatos import nombreProyecto
-from BaseDatos.forms import Fecha, NombreProyecto, NombreCampaña
-import pandas as pd
-import os
+from BaseDatos.forms import Fecha, NombreCampaña, NombreProyecto
 # Create your views here.
 
 def BaseDatos(request):
     formulario_nombre_proyecto = NombreProyecto()
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/direccionBaseDatos.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/direccionBaseDatos.csv')
     url = url.at[0,'url']
     lista = os.listdir(url)
     diccionario = {}
     diccionario = {'formulario':formulario_nombre_proyecto, 'lista':lista}
-    
+
     if request.method == "POST":
         formulario_nombre_proyecto = NombreProyecto(data=request.POST)
 
@@ -29,9 +30,9 @@ def BaseDatos(request):
 
 def BaseDatos2(request):
     formulario_nombre_campaña = NombreCampaña()
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/direccionBaseDatos.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/direccionBaseDatos.csv')
     url = url.at[0,'url']
-    url2 = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
+    url2 = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
     url2 = url2.at[0,'Nombre Proyecto']
     lista = os.listdir(url + '/' + url2)
     diccionario = {}
@@ -52,9 +53,9 @@ def BaseDatos2(request):
 
 def BaseDatos3(request):
     formulario_fecha = Fecha()
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/direccionBaseDatos.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/direccionBaseDatos.csv')
     url = url.at[0,'url']
-    url2 = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
+    url2 = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
     url3 = url2.at[0,'Nombre Proyecto']
     url4 = url2.at[0,'Nombre campaña']
     suffix=".csv"

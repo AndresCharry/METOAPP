@@ -2,6 +2,7 @@ from .encuestaBaseDatos import EncuestaBaseDatos
 from .nuevoProyecto import NuevoProyecto
 from .nuevoProyecto import NuevoProyecto2
 from .nuevoProyecto import NuevoProyecto3
+from .tipoProyecto import TipoDeProyecto
 from .baseDatos import BaseDatos
 from .baseDatos import BaseDatos2
 from .baseDatos import BaseDatos3

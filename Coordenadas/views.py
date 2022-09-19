@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 
-from .forms import FormularioCoordenadas
+from .forms import FormularioCoordenadas, Archivo
 from .limites_coordenadas import Limite_coordenadas
+from .upload import  handle_uploaded_file
 # Create your views here.
 
 
@@ -21,3 +22,14 @@ def coordenadas(request):
             return redirect("/coordenadas/?valido")
 
     return render(request, "Coordenadas/coordenadas.html", {'coordenadas': formulario_coordenadas})
+
+def archivos(request):
+    formulario_archivo = Archivo()
+
+    if request.method == "POST":
+        formulario_archivo = Archivo(request.POST, request.FILES)
+        if formulario_archivo.is_valid():
+            print('o')
+            handle_uploaded_file(request.FILES['file'])
+            return redirect("/upload/?valido")
+    return render(request, "Coordenadas/archivos.html", {'archivo': formulario_archivo})

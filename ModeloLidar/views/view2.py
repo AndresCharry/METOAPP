@@ -17,7 +17,7 @@ def formularioModelo2(request):
     datos= {}
     datos = datos_lidar.Datos_lidar()
     num_anillos = int(datos['Numero de anillos'][0])
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     df = pd.read_csv(url)
     furrows = surcos.datos()

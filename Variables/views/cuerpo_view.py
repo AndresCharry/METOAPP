@@ -11,7 +11,7 @@ def condicion(request, nom_var, num_puntos, numero_variables, variables):
     var = []
     mayor = 0
 
-    for path in pathlib.Path('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/arboles_csv').iterdir():
+    for path in pathlib.Path('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/arboles_csv').iterdir():
         if path.is_file():
             initial_count += 1
 
@@ -33,7 +33,7 @@ def condicion(request, nom_var, num_puntos, numero_variables, variables):
         cantidad_datos = 1
         cantidad_variable += 1
     base_arboles(datos,punto)
-    text = open('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/numero_arboles.txt','w')
+    text = open('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/numero_arboles.txt','w')
     text.write(f'{punto}')
     text.close()
     base_arbol(datos)
@@ -41,13 +41,13 @@ def condicion(request, nom_var, num_puntos, numero_variables, variables):
 
 def lectura(puntos):
     try:
-        text = open('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/numero_arboles.txt','r')
+        text = open('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/numero_arboles.txt','r')
         num = text.read()
         num = int(num)
         text.close()
         if num >= puntos:
-            py_files = glob.glob('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/arboles_csv/*.csv')
-            text = open('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/numero_arboles.txt','w')
+            py_files = glob.glob('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/arboles_csv/*.csv')
+            text = open('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/numero_arboles.txt','w')
             text.write(f'{0}')
             text.close()
             for py_file in py_files:

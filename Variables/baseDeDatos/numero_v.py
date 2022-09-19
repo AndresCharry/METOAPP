@@ -1,7 +1,7 @@
 import pandas as pd
 
 def datos():
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     df = pd.read_csv(url)
     df = int(df['numero de variables'][0])
@@ -9,7 +9,7 @@ def datos():
 
 def nom_var():
     nombre_variables = {}
-    df = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/Variables.csv', header=0)
+    df = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/Variables.csv', header=0)
     try:
         nombre_variables['variable1'] = df.at[0,'variable1']
         nombre_variables['variable2'] = df.at[0,'variable2']
@@ -38,7 +38,7 @@ def nom_var():
 
 def num_var():
     variables = {}
-    df = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/Variables.csv', header=0, index_col= False)
+    df = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/Variables.csv', header=0, index_col= False)
     try:
         variables['num_variable1'] = int(df['num_variable1'])
         variables['num_variable2'] = int(df['num_variable2'])

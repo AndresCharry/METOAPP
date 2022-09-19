@@ -76,7 +76,7 @@ def Proyeccion_angular_lidar(alpha, tX, tY, tZ, diccionario ):
 
     points_matrix = transform_open3d_numpy(pcd_scan, target_ring, target_p)
     Impresion_puntos(points_matrix, lidar_fixed_ang, 0, 0, 0)
-    plt.savefig("/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/scan.jpg")
+    plt.savefig("/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/scan.jpg")
     return pcd_scan, target_ring, target_p, lidar_fixed_ang
 
 def recorrido(width, length, starting_point, step_limit_x, step_limit_y, dis_furrows, waypoint_distance):
@@ -165,7 +165,7 @@ def recorrido(width, length, starting_point, step_limit_x, step_limit_y, dis_fur
     # print(f"la cantida de escaneos son: {len(scannig_route_matrix[:,0])}")
     resultado =  len(scannig_route_matrix[:,0])
     Impresion_recorrido(scannig_route_matrix, route_matrix, width, length)
-    plt.savefig("/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/recorrido.jpg")
+    plt.savefig("/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/recorrido.jpg")
     return scannig_route_matrix, resultado
 
 def transformada_del_plano(scannig_route_matrix, pcd_scan, target_ring, target_p):
@@ -253,7 +253,7 @@ def points_filtered(points_matrix, width, length, lidar_fixed_ang, alpha, result
     resultados = {'cantidad de escaneos':resultado, 'resolucion': points_m2, 'distancia promedio' : average_distance, 'angulo incidencia':  average_ang }
     # o3d.visualization.draw_geometries([pcd])
     Impresion_puntos(points_matrix, lidar_fixed_ang, width, length, 1)
-    plt.savefig('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/pandasmatriz.jpg')
+    plt.savefig('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/pandasmatriz.jpg')
     return resultados
 
 def simulacion(diccionario,dato):

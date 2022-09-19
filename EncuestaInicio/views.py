@@ -21,13 +21,6 @@ def encuestaInicio(request):
             else:
                 surco = False
             datos['surcos'] = surco
-            lidar = request.POST.get("lidar")
-            if lidar == "on":
-                lidar = True
-            else:
-                lidar = False
-            datos['lidar'] = lidar
-        
             baseDeDatos.datos(datos)
             return redirect("/encuestaInicio/?valido")
 

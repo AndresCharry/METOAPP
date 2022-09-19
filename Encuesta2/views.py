@@ -10,7 +10,7 @@ import pandas as pd
 def encuesta2(request):
     formulario_encuesta2 = SCSurcos()
     surco = surcos.datos()
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     df = pd.read_csv(url)
     area = df.at[0,'Area del cultivo']
@@ -21,6 +21,10 @@ def encuesta2(request):
         if formulario_encuesta2.is_valid():
             # creaccion del diccionario
             datos= {}
+            if dron == True:
+                pass
+            if lidar == True:
+                pass
             if surco == True:
                 datos['Distancia de surco'] = request.POST.get("vs")
                 datos['Numero de surcos'] = request.POST.get("n_s")

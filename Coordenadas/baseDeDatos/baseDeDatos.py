@@ -4,7 +4,7 @@ import pandas as pd
 def datos(datos):
     datos[''] = ''
     datos = pd.DataFrame(datos)
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     pandas = pd.read_csv(url)
     try:
@@ -20,8 +20,8 @@ def datos(datos):
         
 def datoss(datoss):
     df = pd.DataFrame(datoss, index = [0])
-    df.to_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Coordenadas/baseDeDatos/coordenadas_csv/coordenasxyz.csv',header= True, index=False)
+    df.to_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Coordenadas/baseDeDatos/coordenadas_csv/coordenasxyz.csv',header= True, index=False)
 
 def coordenadas_referencia(referencia):
     df = pd.DataFrame(referencia, index=[0])
-    df.to_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/Coordenadas/baseDeDatos/coordenadas_csv/coordenasReferencia.csv',header= True, index=False)
+    df.to_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Coordenadas/baseDeDatos/coordenadas_csv/coordenasReferencia.csv',header= True, index=False)

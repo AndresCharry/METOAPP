@@ -1,5 +1,8 @@
 from django  import forms
-
+class TipoProyecto(forms.Form):
+    medicion = forms.BooleanField(required=False, initial=False)
+    dron = forms.BooleanField(required=False, initial=False)
+    lidar = forms.BooleanField(required=False, initial=False)
 class Proyecto(forms.Form):
     nombre_proyecto = forms.CharField(label="nombre del proyecto", max_length= 100, required=True)
     nombre_campaña =  forms.CharField(label="nombre de la campaña", max_length= 100, required=True)

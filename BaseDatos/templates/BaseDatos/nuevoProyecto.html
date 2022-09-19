@@ -10,7 +10,7 @@
                         <p>Información guardada correctamente, puede seguir.</p>
                         <div class="botones">
                             <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                            href="{% url 'EncuestaInicio' %}" id="atras">
+                            href="{% url 'TipoProyecto' %}" id="atras">
                             siguiente
                             </a>
                             <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
@@ -20,7 +20,7 @@
                         </div>
                     {% else  %}
                         <table style="margin: 20px">
-                            <img class="imagen" src="{% static 'WebApp/img/definicion.jpg' %}" style="margin-bottom: 10px; margin-top: 10px; width: 500px; ">
+                            <img class="imagen" src="{% static 'WebApp/img/definicion.jpg' %}" style="margin-bottom: 10px; margin-top: 10px; width: 100%">
                             <label class="label">Nombre del proyecto</label>
                             <div class="control">
                                 {% render_field formulario_proyecto.nombre_proyecto class="input" placeholder="Proyecto" %}
@@ -41,7 +41,7 @@
                         <input type="submit" value="guardar" id="boton" />
                         <div class="botones">
                             <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                            href="{% url 'Home' %}" id="atras">
+                            href="{% url 'EncuestaBaseDatos' %}" id="atras">
                                 atras
                             </a>
                         </div>

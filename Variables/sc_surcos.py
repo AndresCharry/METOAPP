@@ -741,7 +741,7 @@ def modelo(surcos, X_camp, Y_camp, num_markers, arb_esc, vs, n_s, v, num_arb, es
     ax.set_facecolor("#ebaf42")
 
     plt.legend()
-    plt.savefig("/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/cultivo.jpg")
+    plt.savefig("/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/WebApp/static/WebApp/img/cultivo.jpg")
     # plt.show()
 
     # Posiciones de los marcadores (X y Y)

@@ -4,7 +4,7 @@ import pandas as pd
 def datos(datos, surco):
     datos[''] = ' '
     datos = pd.DataFrame(datos, index=[0])
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     pandas = pd.read_csv(url)
     try:
@@ -20,7 +20,7 @@ def datos(datos, surco):
             else:
                 pandas['numero de marcadores'] = datos['numero de marcadores']
                 pandas['numero de variables'] = datos['numero de variables']
-                
+
         pandas.to_csv(url,index=False, header = True)
     except:
         result = pd.concat([pandas,datos], axis=1)

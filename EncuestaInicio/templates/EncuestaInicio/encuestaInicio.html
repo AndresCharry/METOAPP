@@ -28,15 +28,11 @@
                             <div class="control">
                                 {% render_field encuestaInicio.surcos %}
                             </div>
-                            <label class="label">¿Se va a escanear con LiDAR?</label>
-                            <div class="control">
-                                {% render_field encuestaInicio.lidar %}
-                            </div>
                         </table>
                         <input type="submit" value="guardar" id="boton" />
                         <div class="botones">
                             <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                            href="{% url 'Home' %}" id="atras">
+                            href="{% url 'TipoProyecto' %}" id="atras">
                                 atras
                             </a>
                         </div>

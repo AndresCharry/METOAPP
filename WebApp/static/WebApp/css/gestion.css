@@ -326,3 +326,51 @@ p.footer{
   padding: 1rem;
 
 }
+
+#container{
+  width: 35%;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 20%;
+  background-color: rgba(189, 236, 182);
+}
+
+#text{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+#container{
+  padding: 10px; 
+}
+.row1{
+  display: flex;
+  height: 20rem;
+}
+
+.column{
+  float: left;
+}
+
+.left{
+  width: 60%;
+  margin: 20px;
+}
+
+.right{
+  width: 20%;
+  margin: 10px;
+  padding: 90px 0px;
+}
+
+.text{
+  text-align: center;
+}
+
+.uno{
+  height: 80%;
+}
+
+.botones{
+ text-align: center; 
+}
+

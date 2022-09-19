@@ -21,7 +21,7 @@ def NuevoProyecto(request):
             dato['Dia de la plantacion'] = request.POST.get("dia_plantacion")
             datos['Fecha'] = request.POST.get("fecha")
             try:
-                url = f'/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
+                url = f'/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
                 path = Path(url)
                 path.mkdir(parents=True)
             except:
@@ -35,7 +35,7 @@ def NuevoProyecto(request):
 def NuevoProyecto2(request):
    
     formulario_nuevo_proyecto = campañas()
-    url2 = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
+    url2 = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
     url2 = url2.at[0,'Nombre Proyecto']
     diccionario = {'formulario_proyecto':formulario_nuevo_proyecto , 'proyecto': url2}
     if request.method == "POST":
@@ -49,7 +49,7 @@ def NuevoProyecto2(request):
             dato['Dia de la plantacion'] = request.POST.get("dia_plantacion")
             datos['Fecha'] = request.POST.get("fecha")
             try:
-                url = f'/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
+                url = f'/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
                 path = Path(url)
                 path.mkdir(parents=True)
             except:
@@ -63,7 +63,7 @@ def NuevoProyecto2(request):
 def NuevoProyecto3(request):
    
     formulario_nuevo_proyecto = Fechas()
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/nombreProyecto.csv')
     url2 = url.at[0,'Nombre Proyecto']
     url3 = url.at[0,'Nombre campaña']
     diccionario = {'formulario_proyecto':formulario_nuevo_proyecto,'proyecto':url2,'campaña':url3 }
@@ -76,7 +76,7 @@ def NuevoProyecto3(request):
             datos['Nombre de la campaña'] = url3
             datos['Fecha'] = request.POST.get("fecha")
             try:
-                url = f'/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
+                url = f'/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
                 path = Path(url)
                 path.mkdir(parents=True)
             except:

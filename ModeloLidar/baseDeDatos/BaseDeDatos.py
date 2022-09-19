@@ -3,13 +3,13 @@ import pandas as pd
 
 def datos(datos):
     df = pd.DataFrame(datos,index=[0])
-    df.to_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/ModeloLidar/baseDeDatos/ModeloLidar_csv/ModeloLidar.csv',
+    df.to_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/ModeloLidar/baseDeDatos/ModeloLidar_csv/ModeloLidar.csv',
                 header= True, index=False)
 
 def datoss(datos, indes):
     datos[''] = ''
     indes = range(0,indes)
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     df = pd.read_csv(url)
     datos = pd.DataFrame(datos, index = indes)
@@ -23,7 +23,7 @@ def datoss(datos, indes):
 
 
 def Resultados(datos):
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     df = pd.read_csv(url)
     datos = pd.DataFrame(datos, index = [0])
@@ -32,7 +32,7 @@ def Resultados(datos):
 
  
 def Datos_lidar():
-    url = pd.read_csv('/home/andres/Documentos/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
     url = url.at[0,'url']
     df = pd.read_csv(url)
     diccionario = {}
