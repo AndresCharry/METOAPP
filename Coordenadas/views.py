@@ -16,7 +16,7 @@ def coordenadas(request):
             datos = {}
             datos['Tipo de cultivo'] = request.POST.get("tipo_cultivo")
             url_coordenadas = handle_uploaded_file(request.FILES['file'])
-            base_de_datos(url_coordenadas)
+            base_de_datos(url_coordenadas, datos)
             return redirect("/coordenadas/?valido")
 
     return render(request, "Coordenadas/coordenadas.html", {'coordenadas': formulario_coordenadas})
