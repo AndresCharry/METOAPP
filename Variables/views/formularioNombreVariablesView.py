@@ -20,22 +20,12 @@ def nombreVariables(request):
             datos['numero de puntos a medir'] = request.POST.get("arb_esc")
             num_puntos = int(datos['numero de puntos a medir'])
             baseDeDatos.datos(datos)
-            coordenadasXY = x_y.datos()
-            numero_de_marcadores = int(numero_marcadores.datos())
-            surco = surcos.datos()
-            if surco == True:
-                surco = 1
-            else:
-                surco = 0
             
-            distancia_de_surco, numero_de_surcos, ancho_de_la_hilera, Numero_de_arboles_por_hilera, Distancia_entre_arboles_por_hilera = variables_modelo.datos()
-            # surcos,X_camp, Y_camp, num_markers, arb_esc, vs, n_s, v, num_arb, esp_arb
-            arboles_escogidos, marcadores = modelo(surco, int(coordenadasXY['x']), int(coordenadasXY['y']), numero_de_marcadores, num_puntos,
-                                                   distancia_de_surco, numero_de_surcos, ancho_de_la_hilera, Numero_de_arboles_por_hilera, Distancia_entre_arboles_por_hilera )
+            # ToDo: cuadrar el programa de juan
+            #arboles_escogidos, marcadores = modelo(surco, int(coordenadasXY['x']), int(coordenadasXY['y']), numero_de_marcadores, num_puntos,
+                                                  # distancia_de_surco, numero_de_surcos, ancho_de_la_hilera, Numero_de_arboles_por_hilera, Distancia_entre_arboles_por_hilera )
             # arboles_escogidos, marcadores = sin_surcos( int(coordenadasXY['x']), int(coordenadasXY['y']), numero_de_marcadores, int(datos['numero de puntos a medir']))
-            arboles_marcadores.datos(arboles_escogidos, marcadores)
-            lista_marcadores.datos()
-            lista_arboles.datos()
+            # arboles_marcadores.datos(arboles_escogidos, marcadores)
             # arboles_marcadores.convertidor()
             return redirect("/formularioNombreVariables/?valido")
 
