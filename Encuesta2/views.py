@@ -21,10 +21,10 @@ def encuesta2(request):
         if formulario_encuesta2.is_valid():
             # creaccion del diccionario
             datos= {}
-            if dron == True:
-                pass
-            if lidar == True:
-                pass
+            #if dron == True:
+                # pass
+            #if lidar == True:
+                # pass
             if surco == True:
                 datos['Distancia de surco'] = request.POST.get("vs")
                 datos['Numero de surcos'] = request.POST.get("n_s")

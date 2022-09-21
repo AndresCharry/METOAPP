@@ -16,12 +16,15 @@ def Variables(request):
     variables = numero_v.num_var()
     nom_var = numero_v.nom_var()
     num = lectura(num_puntos)
-    num1 = puntos[num]
-    lidar = baseDeDatos.scan_lidar()
+    if num != num_puntos:
+        num1 = puntos[num]
+    else:
+        num1 = puntos[-1]
+    # lidar = baseDeDatos.scan_lidar()
     
     formularioVariables = {'formularioVariables': formulario_variables,'numero_variables': numero_variables,
                             'variables' : variables, 'puntos':num1 , 'marcadores': marcadores,
-                            'num_puntos': num_puntos, 'nom_variables': nom_var, 'num' : num+1, 'lidar': lidar,
+                            'num_puntos': num_puntos, 'nom_variables': nom_var, 'num' : num+1, 'lidar': False,
                             'num_marcadores': num_marcadores}
 
     if request.method == "POST":
