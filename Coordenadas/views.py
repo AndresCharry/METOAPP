@@ -33,3 +33,7 @@ def coordenadas(request):
 
     return render(request, "Coordenadas/coordenadas.html", {'coordenadas': formulario_coordenadas, 'manual': medicion_manual})
 
+
+def vista(request):
+
+    return render(request, "Coordenadas/vista.html")
