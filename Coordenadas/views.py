@@ -35,5 +35,13 @@ def coordenadas(request):
 
 
 def vista(request):
-
-    return render(request, "Coordenadas/vista.html")
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url = url.at[0,'url']
+    df = pd.read_csv(url)
+    marcadores_l = df['marcadores(latitud)']
+    marcadores_lg = df['marcadores(longitud)']
+    diccionario = {
+        'marcadores(latitud)': marcadores_l,
+        'marcadores(longitud)': marcadores_lg,
+    }
+    return render(request, "Coordenadas/vista.html", diccionario)

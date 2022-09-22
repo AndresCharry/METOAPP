@@ -9,7 +9,6 @@ def condicion(request, nom_var, num_puntos, numero_variables, variables):
     cantidad_variable = 1
     cantidad_datos = 1
     var = []
-    mayor = 0
 
     for path in pathlib.Path('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/arboles_csv').iterdir():
         if path.is_file():
@@ -25,11 +24,6 @@ def condicion(request, nom_var, num_puntos, numero_variables, variables):
             var.append(float(numero['numero']))
             cantidad_datos += 1
         datos[f"Arbol {punto} " + nom_var[f"variable{cantidad_variable}"]] = pd.Series(var)
-        var = []
-        # if mayor >= len(datos[f"Arbol {punto} " + nom_var[f"variable{cantidad_variable}"]]):
-        #     mayor = mayor
-        # else:
-        #     mayor =  len(datos[f"Arbol {punto} " + nom_var[f"variable{cantidad_variable}"]])
         cantidad_datos = 1
         cantidad_variable += 1
     base_arboles(datos,punto)

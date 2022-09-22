@@ -30,4 +30,8 @@ def diaPlantacion(dato,url):
     text = open( url + 'Dia de la plantacion.txt','w')
     text.write(f'{dato["Dia de la plantacion"]}')
     text.close()
-
+    
+def zonas_cultivo(dato, url):
+    text = open( url + 'numero de zonas.txt','w')
+    text.write(f'{dato["zona"]}')
+    text.close()

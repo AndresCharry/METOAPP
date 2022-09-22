@@ -32,11 +32,15 @@
                             <div class="control">
                                 {% render_field formulario_proyecto.fecha class="input" placeholder="dd-mm-yyyy" %}
                             </div>
+                            <label class="label">Escribe el numero de zonas de tu cultivo</label>
+                            <div class="control">
+                                {% render_field formulario_proyecto.zona class="input" placeholder="# de zonas" %}
+                            </div>
                         </table>
                         <input type="submit" value="guardar" id="boton" />
                         <div class="botones">
                             <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                            href="{% url 'EncuestaBaseDatos' %}" id="atras">
+                            href="{% url 'NuevoProyecto2' %}" id="atras">
                                 atras
                             </a>
                         </div>

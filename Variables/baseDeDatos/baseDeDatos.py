@@ -47,3 +47,4 @@ def lista_puntos_marcadores():
     puntos = [df['puntos latitud'],df['puntos longitud']]
     marcadores = [df['marcadores latitud'], df['marcadores longitud']]
     return puntos, marcadores
+

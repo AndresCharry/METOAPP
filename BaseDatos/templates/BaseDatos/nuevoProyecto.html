@@ -37,6 +37,10 @@
                             <div class="control">
                                 {% render_field formulario_proyecto.fecha class="input" placeholder="dd-mm-yyyy" %}
                             </div>
+                            <label class="label">Escribe el numero de zonas de tu cultivo</label>
+                            <div class="control">
+                                {% render_field formulario_proyecto.zona class="input" placeholder="# de zonas" %}
+                            </div>
                         </table>
                         <input type="submit" value="guardar" id="boton" />
                         <div class="botones">
