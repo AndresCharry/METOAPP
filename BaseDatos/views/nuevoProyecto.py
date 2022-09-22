@@ -12,11 +12,9 @@ def NuevoProyecto(request):
     diccionario = {'formulario_proyecto':formulario_nuevo_proyecto }
     if request.method == "POST":
         formulario_nuevo_proyecto = Proyecto(data=request.POST)
-        print(formulario_nuevo_proyecto)
         datos= {}
         
         if formulario_nuevo_proyecto.is_valid():
-            print(1)
             dato= {}
             datos['nombre del proyecto'] = request.POST.get("nombre_proyecto")
             datos['Nombre de la campaña'] = request.POST.get("nombre_campaña")

@@ -18,7 +18,7 @@ def coordenadas(request):
  
     if request.method == "POST":
         formulario_coordenadas = FormularioCoordenadas(request.POST,request.FILES)
-
+        print(formulario_coordenadas.errors.as_data())
         if formulario_coordenadas.is_valid():
             # creaccion del diccionario
             datos = {}

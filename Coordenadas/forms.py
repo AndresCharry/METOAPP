@@ -75,7 +75,7 @@ numero_marcadores = (
                     )
  
 class FormularioCoordenadas(forms.Form):
-    numero_de_marcadores = forms.ChoiceField(choices = numero_marcadores)
-    n_variables = forms.ChoiceField(choices = numero_variables)
+    numero_de_marcadores = forms.ChoiceField(choices = numero_marcadores, required=False)
+    n_variables = forms.ChoiceField(choices = numero_variables, required=False)
     tipo_cultivo = forms.CharField(label='Tipo de cultivo', required=True,max_length= 40)
     file = forms.FileField() # for creating file input

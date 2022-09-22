@@ -19,7 +19,6 @@ def tipo_de_proyecto(datos):
             dato[''] = ''
             break
     df = pd.DataFrame(dato,index=[0])
-    print(df)
     df.to_csv(url1, header = True, index = False)
 
 def nombreProyecto(datos):
