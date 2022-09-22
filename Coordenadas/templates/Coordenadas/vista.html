@@ -1,0 +1,39 @@
+{% extends "WebApp/base.html" %} {% load static %} {% load widget_tweaks  %} {% block content %} 
+<!-- Heading -->
+<section class="page-section clearfix" style="margin-bottom: 90rem;">
+    <div class="container">
+        <div class="intro">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="margin-bottom: 20px;">
+               <img class="imagen" style="margin-bottom: 10px;" src="{% static 'WebApp/img/coordenadas.jpg' %}">
+                <label>Lista de marcadores</label>
+                <div class="control" style="margin-bottom: 10px;">
+                    {% render_field coordenadas.tipo_cultivo class="input" placeholder="Tipo de cultivo"%}
+                </div>
+                <div class="botones">
+                    {% if dron == True %}
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                        href="{% url 'Finalizar' %}" id="atras">
+                            Descarga
+                        </a>
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                        href="{% url 'Home' %}" id="atras">
+                            Inicio
+                        </a>
+                    {% else %}
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'FormularioModelo' %}" id="atras">
+                            siguiente
+                        </a>
+                        <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
+                            href="{% url 'Coordenadas' %}" id="atras">
+                            atras
+                        </a>
+                    {% endif %}
+               </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
