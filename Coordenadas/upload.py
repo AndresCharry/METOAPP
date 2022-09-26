@@ -20,6 +20,4 @@ def handle_uploaded_file(f):
         latitud.append(url1[f'zona{num} (latitud)'].values.tolist())
         longitud.append(url1[f'zona{num} (longitud)'].values.tolist())
 
-    print(latitud)
-    print(longitud)
-    return url
+    return url, latitud, longitud, num

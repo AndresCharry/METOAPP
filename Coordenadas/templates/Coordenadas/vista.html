@@ -7,7 +7,9 @@
                <img class="imagen" style="margin-bottom: 10px;" src="{% static 'WebApp/img/coordenadas.jpg' %}">
                 <label>Lista de marcadores</label>
                 <div class="control" style="margin-bottom: 10px;">
-                    {% render_field coordenadas.tipo_cultivo class="input" placeholder="Tipo de cultivo"%}
+                    {% for  num in lista%}
+                    <li>{{diccionario.marcadores(latitud).1}}{{diccionario}}</li>
+                    {% endfor%}
                 </div>
                 <div class="botones">
                     {% if dron == True %}
