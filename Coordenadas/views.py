@@ -4,7 +4,7 @@ import pandas as pd
 from .forms import FormularioCoordenadas
 from .upload import  handle_uploaded_file
 from .baseDeDatos.baseDeDatos import  base_de_datos
-from .copia_de_copia_de_listo import main 
+from .final import main 
 # Create your views here.
 
 def coordenadas(request):
@@ -31,12 +31,17 @@ def coordenadas(request):
                 datos['Numero de marcadores'] = request.POST.get("numero_de_marcadores")
                 datos['Distancia entre marcadores'] = request.POST.get("hectarias")
                 marcadores = int(datos['Numero de marcadores'])
-                hectarias = int(datos['Distancia entre marcadores'])
-                marcadores_l, marcadores_lg = main(num_zonas, marcadores, hectarias, latitud, longitud) 
+                sensor = 1
+                marcadores_l, marcadores_lg, x_max, y_max = main(num_zonas, marcadores, sensor,latitud, longitud) 
+                x = x_max
+                y = y_max
+                lista = range(marcadores * num_zonas)
+                print(marcadores_l)
                 marcadores = {
                     "" : "",
-                    "Marcadores (latitud)": marcadores_l,
-                    "Marcadores (longitud)": marcadores_lg,
+                    "Marcadoresl": marcadores_l,
+                    "Marcadoreslg": marcadores_lg,
+                    "lista" : lista
                 }
             else:
                 datos['Numero de variables'] = request.POST.get("n_variables")
