@@ -8,7 +8,7 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     {% if "valido" in request.GET  %}
-                        {% if num == num_puntos %}
+                        {% if num <= num_puntos %}
                             <p>Información guardada correctamente, puede seguir.</p>
                             <div class="botones">
                                 <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
@@ -35,7 +35,7 @@
                         {% endif %}
                     {% else  %}
 
-                            <img class="imagen" src="{% static 'WebApp/img/cultivo.jpg' %}" style="margin-bottom: 10px; width: 400px; ">
+                            <img class="imagen" src="{% static 'WebApp/img/cultivo_puntos.jpg' %}" style="margin-bottom: 10px; width: 400px; ">
                             <br>
                             <label class="label">Punto {{num}} de {{num_puntos}}</label>
                             <br>

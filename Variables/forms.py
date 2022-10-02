@@ -179,6 +179,7 @@ class FormularioNombreVariables(forms.Form):
     num_variable20 = forms.ChoiceField(choices=numero_variables, required=False)
 
     arb_esc = forms.ChoiceField(choices=numero_puntos, required=True)
+    hectarias = forms.IntegerField(label="Distancia de los marcadores por hectaria", required=True, min_value=1)
     
 class FormularioVariables(forms.Form):
     #varible 1

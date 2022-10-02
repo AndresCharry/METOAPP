@@ -21,15 +21,22 @@ def base_de_datos(url_coordenadas, datos, num_zonas, marcadores = None):
         if pandas.at[0, 'Tipo de cultivo'] != None:
             pandas['Tipo de cultivo'] = coordenadas['Tipo de cultivo']
             pandas['Dia de la plantacion'] = coordenadas['Dia de la plantacion']
-            pandas[''] = coordenadas['']
             for num in range(num_zonas):
                 pandas[f'zona{num} (latitud)'] = coordenadas[f'zona{num} (latitud)']
                 pandas[f'zona{num} (longitud)'] = coordenadas[f'zona{num} (longitud)']
-            pandas[''] = ''
-            if marcadores != None:
-                pandas['marcadores (latitud)'] = coordenadas['marcadores (latitud)']
-                pandas['marcadores (longitud)'] = coordenadas['marcadores (longitud)']
+            if marcadores.empty != False:
+                pandas['Marcadores (latitud)'] = coordenadas['Marcadores (latitud)']
+                pandas['Marcadores (longitud)'] = coordenadas['Marcadores (longitud)']
             pandas.to_csv(url1,index=False, header = True)
     except:
         result = pd.concat([pandas, coordenadas], axis=1)
         result.to_csv(url1,index=False, header = True)
+        
+
+
+def maximos(x,y):
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
+    url2 = url.at[0,'Dia de la plantacion']
+    text = open(url2 + 'maximos.txt','w')
+    text.write(f'{x},{y}')
+    text.close()
