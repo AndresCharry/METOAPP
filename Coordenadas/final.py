@@ -100,7 +100,7 @@ def main(num_zonas_en_campo, latitud, longitud, dron = 0, puntos_por_area = 1, p
 
     climx = []; climy = []  #  Rotación
     cpoligono = [];         # Vertices de las areas (representación)
-    c_area_aparente = []; pph = pph*4
+    c_area_aparente = []; pph2 = pph*4
     polig = []; vertices_x = []; vertices_y = []
     angulos_v = []; distancias_v = [] # Angulos y distancias entre vertices
 
@@ -293,7 +293,11 @@ def main(num_zonas_en_campo, latitud, longitud, dron = 0, puntos_por_area = 1, p
         if vector_puntos_dentrox[i]==[]:
             p_d_lat = [] ; p_d_lon = []
         else:
-            p_d_lat,p_d_lon = selec_point(vector_puntos_dentroy[i], vector_puntos_dentrox[i], puntos_por_area)
+            if (areasreales[i+1]<(puntos_por_area*10000/pph)):
+                ppa = int(areasreales[i+1]/(10000/pph))
+      
+            else: ppa =  puntos_por_area
+            p_d_lat,p_d_lon = selec_point(vector_puntos_dentroy[i], vector_puntos_dentrox[i], ppa)
         puntos_dentro_latitud.append(p_d_lat); puntos_dentro_lontud.append(p_d_lon)
         plt.plot(vertices_x[i+1], vertices_y[i+1], alpha=1, linewidth=2, solid_capstyle='round', zorder=2,label = "Area1")
         plt.plot(p_d_lon,p_d_lat,'o')
@@ -313,11 +317,14 @@ def main(num_zonas_en_campo, latitud, longitud, dron = 0, puntos_por_area = 1, p
     ### Puntos
     # puntos_dentro_latitud1, puntos_dentro_lontud1
 
+    areas_de_zonas = []
+    for j in range (1,len(areasreales)):
+        areas_de_zonas.append(areasreales[j])
     """# MARCADORES"""
 
     if dron == 1:
         #creando_puntos(1,num_zonas_en_campo+1,x_R,y_R,pph,vertices_x,vertices_y)
-        marcadores_en_area_x,marcadores_en_area_y = creando_puntos(1,num_zonas_en_campo+1,x_R,y_R,num_markers*2,vertices_x,vertices_y)
+        marcadores_en_area_x,marcadores_en_area_y = creando_puntos(1,num_zonas_en_campo+1,x_R,y_R,num_markers*4,vertices_x,vertices_y)
         # calculo_puntos_dentro(1,num_zonas_en_campo+1,puntos_en_area_x,puntos_en_area_y,0)
         vector_marcadores_dentrox,vector_marcadores_dentroy= calculo_puntos_dentro(1,num_zonas_en_campo+1
                             ,marcadores_en_area_x,marcadores_en_area_y,0)
@@ -356,5 +363,6 @@ def main(num_zonas_en_campo, latitud, longitud, dron = 0, puntos_por_area = 1, p
 
         # Tamaño del campo
         #Xmax; Ymax
+        #areas_de_zonas
         return puntos_markers_latitud1, puntos_markers_lontud1, Xmax, Ymax  
     return puntos_dentro_latitud1, puntos_dentro_lontud1
