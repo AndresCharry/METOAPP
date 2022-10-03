@@ -2,8 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import open3d as o3d
 import pandas as pd
-from Encuesta2.baseDeDatos import surcos
-from Variables.baseDeDatos import x_y
 
 def Impresion_puntos(df, lidar_fixed_ang, width, length, num):
     # Imprimir en pantalla
@@ -261,14 +259,9 @@ def simulacion(diccionario,dato):
     tZ = diccionario['Altura del lidar'][0]                                          # Altura del lidar
     velocidad = diccionario['velocidad de la plataforma'][0]
     platform_speed = (velocidad * 1000)/3600
-    coordenadasXY = x_y.datos()
-    width = int(coordenadasXY['x'])                                 # width del terreno eje: X
-    length = int(coordenadasXY['y'])                                # width del terreno eje: Y
-    furrows = surcos.datos()
-    if(furrows == True):
-        dis_furrows = dato['dis_furrows']                    # La distancia entre furrows en metros
-    else:
-        dis_furrows = 1
+    width = round(float(dato[0]))                                 # width del terreno eje: X
+    length = round(float(dato[1]))                                # width del terreno eje: Y
+    dis_furrows = 1
 
     tX = 0                                                          # Desplazamiento del lidar en el eje x
     tY = 0                                                          # Desplazamiento del lidar en el eje y

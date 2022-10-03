@@ -34,10 +34,8 @@ def datos():
 
 def lista():
     listas = []
-    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/proyecto.csv')
-    url = url.at[0,'url']
-    pandas = pd.read_csv(url)
-    for x in range(0,len(pandas['Coordenadas de los puntos (latitud)'].values)):
-        listas.append([round(pandas.at[x, 'Coordenadas de los puntos (latitud)'],6),round(pandas.at[x, 'Coordenadas de los puntos (longitud)'],6)])
+    url = pd.read_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/arboles_xy.csv')
+    for x in range(0,len(url['puntos (latitud)'].values)):
+        listas.append([round(url.at[x, 'puntos (latitud)'],6),round(url.at[x, 'puntos (longitud)'],6)])
     
     return listas

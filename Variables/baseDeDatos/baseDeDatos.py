@@ -5,7 +5,6 @@ def datos(datos):
     df = pd.DataFrame(datos,index=[0])
     df.to_csv('/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/Variables/baseDeDatos/Variables_csv/Variables.csv',
                 header= True, index=False)
-
     return df
 
 def base_arboles(datos,num):
@@ -47,3 +46,4 @@ def lista_puntos_marcadores():
     puntos = [df['puntos latitud'],df['puntos longitud']]
     marcadores = [df['marcadores latitud'], df['marcadores longitud']]
     return puntos, marcadores
+

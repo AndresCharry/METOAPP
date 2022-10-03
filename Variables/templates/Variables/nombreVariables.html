@@ -883,15 +883,19 @@
                                     {% render_field formularioNombreVariables.num_variable20 class="input" placeholder="# de mediciones " %}
                                 </div>
                             {% endif %}
-                            <label class="lable">¿Cuantos puntos de medición su tendrán en el cultivo?</label>
+                            <label class="lable">¿Cuantos puntos de medición se tendrán en cada zona?</label>
                             <div class="control">
                                 {% render_field formularioNombreVariables.arb_esc  class="input" placeholder="Numero de puntos a medir"  %}
+                            </div>
+                            <label class="label">¿Cuantos puntos por hectárea deben haber?</label>
+                            <div class="control">
+                                {% render_field formularioNombreVariables.hectarias class="input" placeholder="Puntos por hectárea" %}
                             </div>
                         </table>
                         <input type="submit" value="guardar" id="boton" />
                         <div class="botones">
                             <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                            href="{% url 'Encuesta2' %}" id="atras">
+                            href="{% url 'Coordenadas' %}" id="atras">
                                 atras
                             </a>
                         </div>

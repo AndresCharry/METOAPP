@@ -1,5 +1,3 @@
-from email import header
-from re import T
 import pandas as pd
 
 def datos(urls, datos):
@@ -21,7 +19,6 @@ def tipo_de_proyecto(datos):
             dato[''] = ''
             break
     df = pd.DataFrame(dato,index=[0])
-    print(df)
     df.to_csv(url1, header = True, index = False)
 
 def nombreProyecto(datos):
@@ -32,4 +29,8 @@ def diaPlantacion(dato,url):
     text = open( url + 'Dia de la plantacion.txt','w')
     text.write(f'{dato["Dia de la plantacion"]}')
     text.close()
-
+    
+def zonas_cultivo(dato, url):
+    text = open( url + 'numero de zonas.txt','w')
+    text.write(f'{dato["zona"]}')
+    text.close()

@@ -4,7 +4,7 @@ import glob
 import pathlib
 import pandas as pd
 
-def condicion(request, nom_var, num_puntos, numero_variables, variables):
+def condicion(request, nom_var, numero_variables, variables):
     initial_count = 0
     cantidad_variable = 1
     cantidad_datos = 1

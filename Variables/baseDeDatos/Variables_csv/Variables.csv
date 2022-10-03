@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 variable1,num_variable1,numero de puntos a medir
 hola,1,5
+=======
+variable1,num_variable1,numero de puntos a medir por zona,puntos por hectaria,puntos totales
+hola,1,2,10,4
+>>>>>>> coordenadas

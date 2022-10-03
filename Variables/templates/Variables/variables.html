@@ -21,19 +21,6 @@
                                 </a>
                             </div>
                         {% else %}
-                            {% if lidar == True %}
-                                <p>Información guardada correctamente, puede seguir.</p>
-                                <div class="botones">
-                                    <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                                    href="{% url 'FormularioModelo' %}" id="atras">
-                                        siguiente
-                                    </a>
-                                    <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-                                    href="{% url 'FormularioVariables' %}" id="atras">
-                                        atras
-                                    </a>
-                                </div>
-                            {% else %}
                                 <p>Información guardada correctamente, puede seguir.</p>
                                 <div class="botones">
                                     <a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
@@ -45,18 +32,10 @@
                                         Inicio
                                     </a>
                                 </div>
-                            {% endif%}
                         {% endif %}
                     {% else  %}
 
-                            <img class="imagen" src="{% static 'WebApp/img/cultivo.jpg' %}" style="margin-bottom: 10px; width: 400px; ">
-                            {% if num_marcadores  != 0.0 %}
-                                <label class="label">coordenada marcadores</label><br>
-                                <p style="margin-bottom: 0;">Latitud,Longitud</p>
-                                {% for marcadox, marcadoy in marcadores %}
-                                    <table>{{marcadox}},{{marcadoy}}</table>
-                                {% endfor%}
-                            {% endif %}
+                            <img class="imagen" src="{% static 'WebApp/img/cultivo_puntos.jpg' %}" style="margin-bottom: 10px; width: 400px; ">
                             <br>
                             <label class="label">Punto {{num}} de {{num_puntos}}</label>
                             <br>

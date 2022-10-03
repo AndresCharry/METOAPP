@@ -9,7 +9,7 @@
 										<p>Información guardada correctamente, puede seguir.</p>
 										<div class="botones">
 											<a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
-											href="{% url 'EncuestaInicio' %}" id="atras">
+											href="{% url 'Coordenadas' %}" id="atras">
 												siguiente
 											</a>
 											<a class=" btn navbar-brand  text-uppercase text-expanded font-weight-bold d-lg-block"
@@ -19,14 +19,14 @@
 										</div>
 									{% else %}
 										<div class="text ">
-											<p><strong>Selecciona el tipo de medición que vas a utilizar en su cultivo</strong></p>
+											<p><strong>Selecciona el tipo de medición a realizar en el cultivo</strong></p>
 										</div>
 										<div class="row1">
 											<div class="column left">
 												<img class="imagen uno" src="{% static 'WebApp/img/mediciones.jpg' %}">
 											</div>
 											<div class="column right">
-												<p class="text"><strong>Mediciones manual</strong></p>
+												<p class="text"><strong>Medición manual</strong></p>
 												<div class="control text-center">
 													{% render_field formulario.medicion %}
 												</div>

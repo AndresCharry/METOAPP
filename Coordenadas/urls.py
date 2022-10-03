@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('coordenadas/', views.coordenadas, name = "Coordenadas"),
-    path('upload/', views.archivos, name = "Upload")
+    path('vista/', views.vista, name = "Vista")
 ]

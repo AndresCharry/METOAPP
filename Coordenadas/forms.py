@@ -1,20 +1,81 @@
 from django  import forms
-
+numero_variables = (
+                        ("1","1"),
+                        ("2","2"),
+                        ("3","3"),
+                        ("4","4"),
+                        ("5","5"),
+                        ("6","6"),
+                        ("7","7"),
+                        ("8","8"),
+                        ("9","9"),
+                        ("10","10"),
+                        ("11","11"),
+                        ("12","12"),
+                        ("13","13"),
+                        ("14","14"),
+                        ("15","15"),
+                        ("16","16"),
+                        ("17","17"),
+                        ("18","18"),
+                        ("19","19"),
+                        ("20","20")
+                    )
+numero_marcadores = (
+                        ("1","1"),
+                        ("2","2"),
+                        ("3","3"), 
+                        ("4","4"),
+                        ("5","5"),
+                        ("6","6"),
+                        ("7","7"),
+                        ("8","8"),
+                        ("9","9"),
+                        ("10","10"),
+                        ("11","11"),
+                        ("12","12"),
+                        ("13","13"),
+                        ("14","14"),
+                        ("15","15"),
+                        ("16","16"),
+                        ("17","17"),
+                        ("18","18"),
+                        ("19","19"),
+                        ("20","20"),
+                        ("21","21"),
+                        ("22","22"),
+                        ("22","22"),
+                        ("24","24"),
+                        ("25","25"),
+                        ("26","26"),
+                        ("27","27"),
+                        ("28","28"),
+                        ("29","29"),
+                        ("30","30"),
+                        ("31","31"),
+                        ("32","32"),
+                        ("33","33"),
+                        ("34","34"),
+                        ("35","35"),
+                        ("36","36"),
+                        ("37","37"),
+                        ("38","38"),
+                        ("39","39"),
+                        ("40","40"),
+                        ("41","41"),
+                        ("42","42"),
+                        ("43","43"),
+                        ("44","44"),
+                        ("45","45"),
+                        ("46","46"),
+                        ("47","47"),
+                        ("48","48"),
+                        ("49","49"),
+                        ("50","50")
+                    )
+ 
 class FormularioCoordenadas(forms.Form):
-    lat_1 = forms.FloatField(label='Latitud 1', required=True)
-    log_1 = forms.FloatField(label='Longitud 1', required=True)
-    h1 = forms.FloatField(label='Longitud 1', required=True)
-    lat_2 = forms.FloatField(label='Latitud 2', required=True)
-    log_2 = forms.FloatField(label='Longitud 2', required=True)
-    h2 = forms.FloatField(label='Longitud 1', required=True)
-    lat_3 = forms.FloatField(label='Latitud 3', required=True)
-    log_3 = forms.FloatField(label='Longitud 3', required=True)
-    h3 = forms.FloatField(label='Longitud 1', required=True)
-    lat_4 = forms.FloatField(label='Latitud 4', required=True)
-    log_4 = forms.FloatField(label='Longitud 4', required=True)
-    h4 = forms.FloatField(label='Longitud 1', required=True)
-
-class Archivo(forms.Form):
-    firstname = forms.CharField(label="Enter first name",max_length=50)
-    lastname  = forms.CharField(label="Enter last name", max_length = 10)
-    file      = forms.FileField() # for creating file input
+    numero_de_marcadores = forms.ChoiceField(choices = numero_marcadores, required=False)
+    n_variables = forms.ChoiceField(choices = numero_variables, required=False)
+    tipo_cultivo = forms.CharField(label='Tipo de cultivo', required=True,max_length= 40)
+    file = forms.FileField() # for creating file input

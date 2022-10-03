@@ -12,14 +12,15 @@ def NuevoProyecto(request):
     diccionario = {'formulario_proyecto':formulario_nuevo_proyecto }
     if request.method == "POST":
         formulario_nuevo_proyecto = Proyecto(data=request.POST)
-
+        datos= {}
+        
         if formulario_nuevo_proyecto.is_valid():
-            datos= {}
             dato= {}
             datos['nombre del proyecto'] = request.POST.get("nombre_proyecto")
             datos['Nombre de la campaña'] = request.POST.get("nombre_campaña")
             dato['Dia de la plantacion'] = request.POST.get("dia_plantacion")
             datos['Fecha'] = request.POST.get("fecha")
+            dato['zona'] = request.POST.get("zona")
             try:
                 url = f'/home/charry/Documents/programacion/trabajo de grado/web/ProjectWeb/BaseDatos/BaseDeDatos/Base_datos/{datos["nombre del proyecto"]}/{datos["Nombre de la campaña"]}/'
                 path = Path(url)
@@ -28,6 +29,7 @@ def NuevoProyecto(request):
                 pass
             baseDatos.datos(url, datos)
             baseDatos.diaPlantacion(dato, url)
+            baseDatos.zonas_cultivo(dato, url)
             return redirect("/nuevoProyecto/?valido")
 
     return render(request, "BaseDatos/nuevoProyecto.html", diccionario)
